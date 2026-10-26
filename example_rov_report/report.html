@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Mini-ROV simulation report</title>
+<style>body{font-family:Segoe UI,Arial,sans-serif;max-width:900px;margin:30px auto;color:#1a1f2b;padding:0 16px}h1{font-size:26px;margin-bottom:2px}h2{font-size:18px;border-bottom:2px solid #2b6cb0;padding-bottom:4px;margin-top:30px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd3dd;padding:6px 10px;text-align:left;font-size:14px}th{background:#eef2f7}img{width:100%;margin:8px 0;border:1px solid #ccd3dd}.sub{color:#5a6475}.note{background:#fff7e0;border:1px solid #f0d98a;padding:10px;font-size:13px}@media print{h2{page-break-after:avoid}img{page-break-inside:avoid}}</style></head><body>
+<h1>Mini-ROV simulation report</h1>
+<div class="sub">Generated 2026-10-26 15:37</div>
+<h2>1. Settings used</h2><table><tr><th>Parameter</th><th>Value</th></tr>
+<tr><td>Environment</td><td>Shallow (seabed 6 m, operating depth 3 m)</td></tr>
+
+<tr><td>Water quality</td><td>Clear (8 m)</td></tr>
+
+<tr><td>Power mode</td><td>Normal (0.6 m/s)</td></tr>
+
+<tr><td>4G uplink</td><td>4G on at surface only</td></tr>
+
+<tr><td>Depth controller (Kp / Ki / Kd)</td><td>25 / 4 / 30</td></tr>
+
+<tr><td>Heading controller (Kp / Kd)</td><td>3 / 2.2</td></tr>
+
+<tr><td>Speed gain</td><td>12</td></tr>
+
+<tr><td>Battery</td><td>5000 mAh at 14.8 V = 74.0 Wh nominal, 85% usable = 62.9 Wh</td></tr>
+
+</table>
+<h2>2. Results</h2><table><tr><th>Quantity</th><th>Value</th></tr>
+<tr><td>Mission duration</td><td>72 s</td></tr>
+
+<tr><td>Energy used in one mission</td><td>0.92 Wh (1.5% of usable battery)</td></tr>
+
+<tr><td>Average / peak electrical load</td><td>46.0 W / 158 W</td></tr>
+
+<tr><td>Estimated runtime (mission repeated)</td><td>about 82 min, 68 missions back-to-back</td></tr>
+
+<tr><td>Runtime until 20% reserve</td><td>about 66 min</td></tr>
+
+<tr><td>Energy share</td><td>thrusters 52%, Pi 12%, AI 7%, lights 16%, 4G 1%, ESC 3%, converter loss 10%</td></tr>
+
+<tr><td>Depth overshoot / RMS error</td><td>0.03 m / 0.24 m</td></tr>
+
+<tr><td>Heading error while tracking</td><td>RMS 4.6 deg, max 6.8 deg</td></tr>
+
+<tr><td>Camera visibility / AI range</td><td>8.0 m</td></tr>
+
+<tr><td>Lights level</td><td>60%</td></tr>
+
+</table>
+<h2>3. Time in each mission phase</h2><table><tr><th>Phase</th><th>Time (s)</th></tr>
+<tr><td>Dive</td><td>8.3</td></tr>
+
+<tr><td>Search (waypoints)</td><td>15.4</td></tr>
+
+<tr><td>AI tracking</td><td>13.4</td></tr>
+
+<tr><td>Return to base</td><td>18.4</td></tr>
+
+<tr><td>Ascend</td><td>8.5</td></tr>
+
+<tr><td>Surfaced / 4G uplink</td><td>8.1</td></tr>
+
+</table>
+<h2>4. Plots</h2>
+<img src="depth.png"><img src="thrusters.png"><img src="power.png"><img src="battery.png">
+<h2>5. Application screenshot</h2><img src="screenshot.png">
+<h2>6. Assumptions</h2><div class="note">Vehicle mass, drag, thrust and all power figures are assumed values, not measurements. The AI detection is simulated from camera field of view and water visibility. Replace the assumptions with values measured on the real vehicle before drawing conclusions. The raw simulation log is in log.csv.</div></body></html>
